@@ -22,3 +22,4 @@ Route::get('/', function () {
 });
 
 Route::get('/articles/{article}', \App\Http\Livewire\Articles\Index::class);
+Route::get('auth/register', \App\Http\Livewire\Auth\Register::class);
