@@ -6,22 +6,22 @@
                 <form wire:submit.prevent="register">
                     <div class="form-group mt-2">
                         <label for="name">Name</label>
-                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" wire:model.defer="name">
-                        @error('name')
+                        <input type="text" class="form-control @error('user.name') is-invalid @enderror" id="name" wire:model.lazy="user.name" autocomplete="off">
+                        @error('user.name')
                         <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>
                     <div class="form-group mt-2">
                         <label for="email">Email address</label>
-                        <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" wire:model.defer="email">
-                        @error('email')
+                        <input type="email" class="form-control @error('user.email') is-invalid @enderror" id="email" wire:model.lazy="user.email" autocomplete="off">
+                        @error('user.email')
                         <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>
                     <div class="form-group mt-2">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control @error('email') is-invalid @enderror" id="password" wire:model.defer="password">
-                        @error('password')
+                        <input type="password" class="form-control @error('user.password') is-invalid @enderror" id="password" wire:model.lazy="user.password" autocomplete="off">
+                        @error('user.password')
                         <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>
