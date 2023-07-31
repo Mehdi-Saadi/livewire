@@ -7,17 +7,14 @@ use Livewire\Component;
 
 class Register extends Component
 {
-    public User $user;
-
-    public function mount()
-    {
-        $this->user = new User();
-    }
+    public $name;
+    public $email;
+    public $password;
 
     protected $rules = [
-        'user.name' => 'required',
-        'user.email' => 'required|email|unique:users,email',
-        'user.password' => 'required|min:8'
+        'name' => 'required',
+        'email' => 'required|email|unique:users,email',
+        'password' => 'required|min:8'
     ];
 
     public function updated($name)
@@ -27,10 +24,12 @@ class Register extends Component
 
     public function register()
     {
-        $this->validate();
+        $validatedData = $this->validate();
 
-        $this->user->password = bcrypt($this->user->password);
-        $this->user->save();
+        $validatedData['password'] = bcrypt($this->password);
+        User::create($validatedData);
+
+        return redirect('/');
     }
 
     public function render()

@@ -20,6 +20,7 @@ return new class extends Migration
                 ->cascadeOnDelete();
             $table->string('title');
             $table->text('body');
+            $table->unsignedInteger('like')->default(0);
             $table->timestamps();
         });
     }

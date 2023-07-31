@@ -13,13 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $article = [
-        'title' => 'this is article 1',
-        'body' => 'article\'s body',
-    ];
-    return view('master', compact('article'));
-});
+Route::get('/', \App\Http\Livewire\Home::class);
 
-Route::get('/articles/{article}', \App\Http\Livewire\Articles\Index::class);
+Route::get('/articles', \App\Http\Livewire\Articles\Index::class);
 Route::get('auth/register', \App\Http\Livewire\Auth\Register::class);
