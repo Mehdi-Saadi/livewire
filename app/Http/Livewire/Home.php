@@ -2,29 +2,36 @@
 
 namespace App\Http\Livewire;
 
+use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 
 class Home extends Component
 {
-    public $foo;
+    public $foo = 0;
 
     public function mount()
     {
-        $this->foo = 1;
+        Log::info('mount method');
+    }
+
+    public function hydrate()
+    {
+        Log::info('hydrate method');
+    }
+
+    public function dehydrate()
+    {
+        Log::info('dehydrate method');
     }
 
     public function increment()
     {
-        $this->foo += 1;
-    }
-
-    public function getBarProperty()
-    {
-        return $this->foo += 1;
+        $this->foo++;
     }
 
     public function render()
     {
+        Log::info('render method');
         return view('livewire.home');
     }
 }
