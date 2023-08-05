@@ -17,3 +17,4 @@ Route::get('/', \App\Http\Livewire\Home::class);
 
 Route::get('/articles', \App\Http\Livewire\Articles\Index::class);
 Route::get('auth/register', \App\Http\Livewire\Auth\Register::class);
+Route::get('files/upload', \App\Http\Livewire\Layouts\Upload::class);
